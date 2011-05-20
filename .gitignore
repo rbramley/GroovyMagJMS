@@ -1,0 +1,5 @@
+# Ignore the embedded ActiveMQ broker working directory
+activemq-data
+
+# Ignore target
+target
