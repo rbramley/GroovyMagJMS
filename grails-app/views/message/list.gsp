@@ -7,7 +7,7 @@
         <g:set var="entityName" value="${message(code: 'message.label', default: 'Message')}" />
         <title><g:message code="default.list.label" args="[entityName]" /></title>
         <atmosphere:resources/>
-		<script type="text/javascript">
+        <script type="text/javascript">
         $(document).ready(function() {
                 // jquery.atmosphere.response
                 function callback(response) {
@@ -15,11 +15,11 @@
                         var data = response.responseBody;
                         if (data.length > 0) {
                             try {
-	                            var msgObj = jQuery.parseJSON(data);
-	                            if (msgObj.id > 0) {
-		                            var row = '<tr><td>' + msgObj.id + '</td><td>' + msgObj.body + '</td><td></td></tr>'
-		                            $('tbody').append(row);
-	                        	}
+                                var msgObj = jQuery.parseJSON(data);
+                                if (msgObj.id > 0) {
+                                    var row = '<tr><td>' + msgObj.id + '</td><td>' + msgObj.body + '</td><td></td></tr>'
+                                    $('tbody').append(row);
+                                }
                             } catch (e) {
                                 // Atmosphere sends commented out data to WebKit based browsers
                             }
@@ -28,9 +28,9 @@
                 }
 
                 var location = 'http://localhost:8080/GroovyMagJMS/atmosphere/messages';
-                $.atmosphere.subscribe(location, callback, $.atmosphere.request = {transport: 'websocket'});				
+                $.atmosphere.subscribe(location, callback, $.atmosphere.request = {transport: 'websocket', fallbackTransport: 'long-polling'});
         });
-		</script>
+        </script>
 
     </head>
     <body>

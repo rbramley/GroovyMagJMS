@@ -3,3 +3,8 @@ activemq-data
 
 # Ignore target
 target
+
+# Ignore Eclipse assets
+.classpath
+.project
+.settings

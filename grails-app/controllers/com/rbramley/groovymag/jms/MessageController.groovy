@@ -7,7 +7,6 @@ class MessageController {
 
     def save = {
         jmsService.send(queue:'msg.new', params.body)
-        flash.message = "Message queued for persistence"
         redirect(action: "list")
     }
 
